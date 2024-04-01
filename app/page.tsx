@@ -12,7 +12,7 @@ export default function Home() {
   const { append, messages, input, handleInputChange, handleSubmit } = useChat();
   const { useRag, llm, similarityMetric, setConfiguration } = useConfiguration();
 
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
   const [configureOpen, setConfigureOpen] = useState(false);
 
   const scrollToBottom = () => {
@@ -23,11 +23,11 @@ export default function Home() {
     scrollToBottom();
   }, [messages]);
 
-  const handleSend = (e) => {
+  const handleSend = (e: React.FormEvent<HTMLFormElement>) => {
     handleSubmit(e, { options: { body: { useRag, llm, similarityMetric}}});
   }
 
-  const handlePrompt = (promptText) => {
+  const handlePrompt = (promptText: string) => {
     const msg: Message = { id: crypto.randomUUID(),  content: promptText, role: 'user' };
     append(msg, { options: { body: { useRag, llm, similarityMetric}}});
   };
