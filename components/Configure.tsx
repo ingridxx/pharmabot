@@ -39,6 +39,15 @@ const Configure = ({ isOpen, onClose, useRag, llm, similarityMetric, setConfigur
     onClose();
   };
 
+  const handleSelectSimilarityMetricWrapper = (value: string) => {
+    if (value === "euclidean" || value === "dot_product") {
+      setSelectedSimilarityMetric(value as SimilarityMetric);
+    } else {
+      console.error("Invalid similarity metric selected:", value);
+    }
+  };
+  
+
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50">
       <div className="chatbot-section flex flex-col origin:w-[800px] w-full origin:h-[735px] h-full p-6 rounded shadow-lg overflow-auto">
@@ -67,7 +76,7 @@ const Configure = ({ isOpen, onClose, useRag, llm, similarityMetric, setConfigur
             label="Similarity Metric"
             options={similarityMetricOptions}
             value={selectedSimilarityMetric}
-            onSelect={setSelectedSimilarityMetric}
+            onSelect={handleSelectSimilarityMetricWrapper}
           />
         </div>
         <div className="self-end w-full">

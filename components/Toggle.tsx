@@ -1,4 +1,8 @@
-const Toggle = ({ enabled, label, onChange }) => {
+const Toggle: React.FC<{
+    enabled: boolean;
+    label: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  }> = ({ enabled, label, onChange }) => {
     return (
       <div className="flex items-center justify-center w-full self-end">
         <label htmlFor="toggle" className="flex items-center cursor-pointer py-2">

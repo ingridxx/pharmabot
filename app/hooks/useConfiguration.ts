@@ -28,6 +28,14 @@ const useConfiguration = () => {
     setSimilarityMetric(similarityMetric);
   }
 
+  const handleSelectSimilarityMetric = (value: string) => {
+    if (value === "euclidean" || value === "dot_product") {
+        setSimilarityMetric(value as SimilarityMetric);
+    } else {
+        console.error("Invalid similarity metric selected:", value);
+    }
+  };
+
   // Persist to localStorage
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -42,6 +50,7 @@ const useConfiguration = () => {
     llm,
     similarityMetric,
     setConfiguration,
+    handleSelectSimilarityMetric,
   };
 }
 

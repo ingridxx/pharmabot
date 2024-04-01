@@ -1,5 +1,5 @@
 
-const PromptSuggestionButton = ({ text, onClick }) => {
+const PromptSuggestionButton: React.FC<{text: string, onClick: () => void}> = ({ text, onClick }) => {
     return (
       <button
         onClick={onClick}

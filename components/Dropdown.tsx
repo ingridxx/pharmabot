@@ -1,4 +1,10 @@
-const Dropdown = ({ fieldId, label, options, value, onSelect }) => {
+const Dropdown: React.FC<{
+    fieldId: string;
+    label?: string;
+    options: { value: string | number; label: string }[];
+    value: string | number;
+    onSelect: (value: string) => void;
+  }> = ({ fieldId, label, options, value, onSelect }) => {
     return (
       <div className="relative inline-block w-full text-gray-700">
         {label && (

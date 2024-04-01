@@ -1,6 +1,6 @@
 import PromptSuggestionButton from "./PromptSuggestionButton";
 
-const PromptSuggestionRow = ({ onPromptClick }) => {
+const PromptSuggestionRow: React.FC<{onPromptClick: (prompt: string) => void}> = ({ onPromptClick }) => {
   const prompts = [
     'I need a treatment for acne',
     'What headache medications wont give me heartburns?',
