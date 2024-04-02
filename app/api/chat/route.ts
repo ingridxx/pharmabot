@@ -98,10 +98,10 @@ export async function POST(req: Request) {
         console.log("matches are: ", matchesFormatted);
 
         const prompt = `I am looking for medication options for "${latestMessage}". 
-        Given the drugs identified below, which would be the most suitable options and why? 
-        If I specified unwanted side effects, consider that as a criteria. Give the product name, brand names, and stock availability.\n${matchesFormatted}\n\n
+        Given the drugs identified in the context below, which would be the most suitable options and why? 
+        If I specified unwanted side effects, consider that as a criteria. Give the product name, brand names, and stock availability. START CONTEXT \n${matchesFormatted} END CONTEXT \n\n
         Please provide detailed reasons for your recommendations, including side effects and any other relevant criteria. 
-        Note: If the answer is not provided in the context, the AI assistant will say, "I'm sorry, I don't know the answer".`;
+        Note: If the answer is not provided in the context, the AI assistant will say, "I'm sorry, I don't know the answer. Please enable RAG.".`;
 
 
         const response = await openai.chat.completions.create(
